@@ -5,14 +5,14 @@ ENV JENKINS_VERSION=2.235.5 \
     HOME=/var/lib/jenkins \
     JENKINS_REF_HOME=/opt/jenkins \
     JENKINS_HOME=/var/lib/jenkins \
-    JENKINS_DATA=/var/jenkins-data \
+    JENKINS_DATA=/var/lib/jenkins \
     JENKINS_UC=https://updates.jenkins.io \
     OPENSHIFT_JENKINS_IMAGE_VERSION=3.11 \
     LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
 
 ARG JAVA_TOOL_OPTIONS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2"
-ARG OC_VERSION=v3.11.0
+ARG OC_VERSION=4.5.15
 ARG OC_QUALIFIER=0cbc58b-linux-64bit
 ARG TINI_VERSION=v0.18.0
 ARG TINI_QUALIFIER=amd64
@@ -40,7 +40,7 @@ ENV BASH_ENV=/usr/local/bin/scl_enable \
 #OC command line
 RUN set -x && \
     mkdir /tmp/oc && \
-    curl -SL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.5.15/openshift-client-linux-4.5.15.tar.gz -o /tmp/oc/openshift-origin-client-tools.tar.gz && \
+    curl -SL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OC_VERSION}/openshift-client-linux-${OC_VERSION}.tar.gz -o /tmp/oc/openshift-origin-client-tools.tar.gz && \
     gunzip /tmp/oc/openshift-origin-client-tools.tar.gz && \
     tar -xf /tmp/oc/openshift-origin-client-tools.tar -C /tmp/oc && \
     cp /tmp/oc/oc /usr/local/bin/ && \
