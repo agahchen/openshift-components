@@ -75,6 +75,7 @@ echo "JENKINS_JAVA_OPTIONS=${JENKINS_JAVA_OPTIONS}"
 
 #"${JENKINS_JAVA_CMD}" $JENKINS_JAVA_OPTIONS -XshowSettings:vm -version
 echo "Preparing persistent folder structure"
+rmdir $JENKINS_HOME/jobs
 mkdir -p $JENKINS_DATA/jobs
 mkdir -p $JENKINS_DATA/logs
 mkdir -p $JENKINS_DATA/builds
