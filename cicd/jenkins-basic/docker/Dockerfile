@@ -42,8 +42,7 @@ RUN set -x && \
     mkdir /tmp/oc && \
     curl -SL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OC_VERSION}/openshift-client-linux-${OC_VERSION}.tar.gz -o /tmp/oc/openshift-origin-client-tools.tar.gz && \
     tar -xzf /tmp/oc/openshift-origin-client-tools.tar.gz -C /usr/local/bin/ && \
-    chmod +x /usr/local/bin/oc && \
-    rm -rf /tmp/oc
+    chmod +x /usr/local/bin/oc
 
 RUN set -x && \
     curl -fsSL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/local/bin/jq && \
